@@ -33,6 +33,7 @@ import mediathek.tool.GermanStringSorter;
 import mediathek.tool.GuiFunktionen;
 import mediathek.tool.Konstanten;
 import mediathek.tool.ListenerMediathekView;
+import mediathek.tool.MVConfig;
 import mediathek.tool.MVFilmSize;
 import msearch.daten.DatenFilm;
 import msearch.tool.Datum;
@@ -542,6 +543,12 @@ public class DatenDownload implements Comparable<DatenDownload> {
         }
         if (name.equals("")) {
             name = getHeute_yyyyMMdd() + "_" + arr[DatenDownload.DOWNLOAD_THEMA_NR] + "-" + arr[DatenDownload.DOWNLOAD_TITEL_NR] + ".mp4";
+        } else if (Boolean.parseBoolean(Daten.mVConfig.get(MVConfig.SYSTEM_DATUMSPRAEFIX))) {
+            Date sendedatum = film.datumFilm.getTime() > 0 ? film.datumFilm : new Date();
+            String sendedatumFormattiert = new SimpleDateFormat("yyyy-MM-dd").format(sendedatum);
+            if (!name.startsWith(sendedatumFormattiert)) {
+                name = sendedatumFormattiert+"_"+name;
+            }
         }
 
         // in Win dürfen die Pfade nicht länger als 255 Zeichen haben (für die Infodatei kommen noch ".txt" dazu)

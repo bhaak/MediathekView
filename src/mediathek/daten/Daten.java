@@ -251,6 +251,7 @@ public class Daten {
         mVConfig.add(MVConfig.SYSTEM_DOWNLOAD_SOFORT_STARTEN, Boolean.FALSE.toString());
         mVConfig.add(MVConfig.SYSTEM_USE_REPLACETABLE, SystemInfo.isLinux() || SystemInfo.isMacOSX() ? Boolean.TRUE.toString() : Boolean.FALSE.toString()); // wegen des Problems mit ext. Programmaufrufen und Leerzeichen
         mVConfig.add(MVConfig.SYSTEM_ONLY_ASCII, Boolean.FALSE.toString());
+        mVConfig.add(MVConfig.SYSTEM_DATUMSPRAEFIX, Boolean.FALSE.toString());
         mVConfig.add(MVConfig.SYSTEM_ECHTZEITSUCHE, Boolean.TRUE.toString());
         mVConfig.add(MVConfig.SYSTEM_USE_TRAY, Boolean.FALSE.toString());
         mVConfig.add(MVConfig.SYSTEM_ICON_STANDARD, Boolean.TRUE.toString());

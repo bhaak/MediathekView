@@ -165,6 +165,17 @@ public class PanelDateinamen extends PanelVorlage {
         });
         jCheckBoxAscii.setSelected(Boolean.parseBoolean(Daten.mVConfig.get(MVConfig.SYSTEM_ONLY_ASCII)));
         setColor(jCheckBoxAscii, jCheckBoxAscii.isSelected());
+
+        jCheckBoxDatePrefix.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Daten.mVConfig.add(MVConfig.SYSTEM_DATUMSPRAEFIX, Boolean.toString(jCheckBoxDatePrefix.isSelected()));
+                setColor(jCheckBoxDatePrefix, jCheckBoxDatePrefix.isSelected());
+            }
+        });
+        jCheckBoxDatePrefix.setSelected(Boolean.parseBoolean(Daten.mVConfig.get(MVConfig.SYSTEM_DATUMSPRAEFIX)));
+        setColor(jCheckBoxDatePrefix, jCheckBoxDatePrefix.isSelected());
     }
 
     private void setColor(JCheckBox cb, boolean en) {
@@ -286,6 +297,7 @@ public class PanelDateinamen extends PanelVorlage {
         jButtonDown = new javax.swing.JButton();
         jButtonUp = new javax.swing.JButton();
         jCheckBoxAscii = new javax.swing.JCheckBox();
+        jCheckBoxDatePrefix = new javax.swing.JCheckBox();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -420,6 +432,8 @@ public class PanelDateinamen extends PanelVorlage {
 
         jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButtonDown, jButtonMinus, jButtonPlus, jButtonUp, jLabelNach, jLabelVon, jTextFieldNach, jTextFieldVon});
 
+        jCheckBoxDatePrefix.setText("Sendedatum als Präfix");
+
         jCheckBoxAscii.setText("nur ASCII-Zeichen erlauben");
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -462,6 +476,10 @@ public class PanelDateinamen extends PanelVorlage {
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
+                        .addComponent(jCheckBoxDatePrefix)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(jCheckBoxAscii)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -482,7 +500,8 @@ public class PanelDateinamen extends PanelVorlage {
                 .addComponent(jCheckBoxTable)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addGap(9, 9, 9)
+                .addComponent(jCheckBoxDatePrefix)
                 .addComponent(jCheckBoxAscii)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -515,6 +534,7 @@ public class PanelDateinamen extends PanelVorlage {
     private javax.swing.JButton jButtonReset;
     private javax.swing.JButton jButtonUp;
     private javax.swing.JCheckBox jCheckBoxAscii;
+    private javax.swing.JCheckBox jCheckBoxDatePrefix;
     private javax.swing.JCheckBox jCheckBoxTable;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelAlert;
